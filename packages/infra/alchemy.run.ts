@@ -1,6 +1,7 @@
 import alchemy from "alchemy";
 import { TanStackStart } from "alchemy/cloudflare";
 import { Worker } from "alchemy/cloudflare";
+import { CloudflareStateStore } from "alchemy/state";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
@@ -15,7 +16,13 @@ if (stage !== "dev") {
   config({ path: `./.env.${stage}` });
 }
 
-const app = await alchemy("my-stack", { stage });
+const app = await alchemy("my-stack", {
+  stage,
+  stateStore: (scope) =>
+    new CloudflareStateStore(scope, {
+      scriptName: `my-stack-state-${stage}`,
+    }),
+});
 
 const isProd = app.stage === "prod";
 const workersSubdomain = process.env.CLOUDFLARE_WORKERS_SUBDOMAIN;
