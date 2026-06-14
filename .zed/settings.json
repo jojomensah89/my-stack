@@ -1,0 +1,28 @@
+{
+  "context_servers": {
+    "context7": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "cloudflare-docs": {
+      "source": "custom",
+      "type": "sse",
+      "url": "https://docs.mcp.cloudflare.com/sse",
+      "headers": {}
+    },
+    "neon": {
+      "source": "custom",
+      "type": "http",
+      "url": "https://mcp.neon.tech/mcp",
+      "headers": {}
+    },
+    "better-auth": {
+      "source": "custom",
+      "type": "http",
+      "url": "https://mcp.inkeep.com/better-auth/mcp",
+      "headers": {}
+    }
+  }
+}
