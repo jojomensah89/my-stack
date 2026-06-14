@@ -5,8 +5,7 @@
   "scripts": {
     "build": "vp build",
     "serve": "vp preview",
-    "dev:bare": "vp dev",
-    "vite": "bunx --bun vite"
+    "dev:bare": "vp dev"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.3",
