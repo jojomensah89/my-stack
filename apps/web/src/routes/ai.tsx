@@ -6,7 +6,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { DefaultChatTransport } from "ai";
 import { Send } from "lucide-react";
 import { useRef, useEffect, useState, type FormEvent } from "react";
-import { Streamdown } from "streamdown";
 
 export const Route = createFileRoute("/ai")({
   component: RouteComponent,
@@ -54,14 +53,7 @@ function RouteComponent() {
               </p>
               {message.parts?.map((part, index) => {
                 if (part.type === "text") {
-                  return (
-                    <Streamdown
-                      key={index}
-                      isAnimating={status === "streaming" && message.role === "assistant"}
-                    >
-                      {part.text}
-                    </Streamdown>
-                  );
+                  return <p key={index}>{part.text}</p>;
                 }
                 return null;
               })}
