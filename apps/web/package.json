@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vp build",
+    "build": "vite build",
     "serve": "vp preview",
     "dev:bare": "vp dev"
   },
